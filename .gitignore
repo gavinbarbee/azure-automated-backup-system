@@ -1,0 +1,20 @@
+# Terraform local state and provider cache — never commit these
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+ 
+# Terraform variable files can contain secrets — this repo's terraform.tfvars
+# holds a personal email address, so keep it out of git
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+ 
+# OS / editor noise
+.DS_Store
+Thumbs.db
+ 

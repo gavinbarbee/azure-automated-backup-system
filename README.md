@@ -4,7 +4,7 @@
 
 ## 🎬 Video Walkthrough
 
-[![Watch the walkthrough](https://cdn.loom.com/sessions/thumbnails/2f27979f387447e89cd8f385f0c8e0b4-with-play.gif)](https://www.loom.com/share/2f27979f387447e89cd8f385f0c8e0b4)
+[![Watch the walkthrough](https://img.shields.io/badge/Loom-Watch%20Walkthrough-8b5cf6)](https://www.loom.com/share/2f27979f387447e89cd8f385f0c8e0b4)
 
 ---
 

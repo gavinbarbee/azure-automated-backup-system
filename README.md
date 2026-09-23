@@ -1,11 +1,12 @@
 # Azure Automated Backup System
 
-**Status:** 🚧 In progress — building now.
+**Status:** ✅ Built, deployed, and verified end-to-end — versioning, lifecycle policy, the no-writes alert, and the daily confirmation email are all live in the subscription.
 
 ## 🎬 Video Walkthrough
 
 > 📌 *Loom link coming soon — will be added here once recorded.*
 
+[![Watch the walkthrough](https://img.shields.io/badge/Loom-Video%20Coming%20Soon-lightgrey)]()
 
 ---
 
@@ -561,7 +562,10 @@ Type `yes` when prompted. This deletes all resources in the project, including t
 
 ## 💡 Key Takeaways
 
-*(to be filled in once the build is complete.)*
+- Owning a resource isn't the same as having data-plane access to it. Being Owner or Contributor on the subscription doesn't automatically grant permission to read or write the actual blobs inside a storage account — that requires a separate RBAC role (**Storage Blob Data Contributor**) scoped to the resource itself. Azure deliberately splits "can manage this resource" from "can touch the data inside it," and this project ran into that boundary directly.
+- Don't hand-type references to designer-generated step names. Logic Apps auto-names steps based on what's dropped into the canvas (`Lists_blobs_(V2)`, not the plain name a written guide might assume), and a hand-typed expression that guesses wrong fails with an unhelpful "action not defined" error. Building expressions through the dynamic content picker instead of typing them out avoids the mismatch entirely, since it always references the step's real name.
+- The right email connector depends on the mailbox behind it, not just preference. Office 365 Outlook needs an Exchange-backed work/school account, and Gmail — even when it authenticates fine — carries a Google policy that blocks it from sharing a workflow with non-approved connectors like Azure Blob Storage on personal accounts. Outlook.com ended up being the connector that actually fit an individual, non-Exchange, non-restricted mailbox.
+- The real deliverable is confidence, not infrastructure. A small business doesn't need to understand geo-redundancy or lifecycle tiering — it needs to know that if someone accidentally deletes a file, it's recoverable, and that a quiet system is a working one, not a forgotten one. Everything here — versioning, the no-writes alert, the daily confirmation email — exists to make that true without anyone having to check.
 
 ---
 
